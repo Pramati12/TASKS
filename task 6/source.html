@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title>
+            table
+        </title>
+        <style>
+         .c {
+             background-color: aquamarine;
+             text-decoration: table ;
+               border-collapse: collapse;
+               
+               
+             }
+             .c2 {
+                background-color: antiquewhite; 
+             text-decoration: table ;
+               border-collapse: collapse;
+               
+
+             }
+             .c3{
+                 background-color: cadetblue;
+                 text-decoration: table ;
+               border-collapse: collapse;
+
+             }
+             .c1 {
+                 background-color: aqua ;
+                 text-decoration: table ;
+               border-collapse: collapse;
+             }
+             
+
+          </style>
+    </head>
+    <body onload="loadData()" >
+        
+            <script>
+                function loadData() {
+                  var xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                
+                    if (this.readyState == 4 && this.status == 200) {
+                        let val =JSON.parse( this.responseText);
+                        var a = val.data;
+                        console.log(a);
+
+                        let tb1 = document.createElement("table");tb1.classname='classtable';
+
+                     
+                           
+                        for(let i = 0;i< a.length; i++)         
+                        {
+                            let tr = document.createElement("tr")
+                            
+                            let r2=document.createElement("td");r2.className='c'
+                            r2.innerHTML= a[i].first_name
+                            tr.appendChild(r2)
+
+                            let r3=document.createElement("td");r3.className='c1'
+                            r3.innerHTML = a[i].last_name
+                            tr.appendChild(r3)
+
+                           
+                            let r5 =document.createElement("td");r5.className='c2'
+                            r5.innerHTML=a[i].id;
+                            tr.appendChild(r5)
+
+                            let r6 =document.createElement("td");r6.className='c3'
+                            r6.innerHTML=a[i].email;
+                            tr.appendChild(r6)
+
+                            let btn = document.createElement("button");btn.className='boton'; 
+                            btn.innerHTML = "edit";
+                            
+                            tr.appendChild(btn)
+
+
+                            tb1.appendChild(tr);
+                            tr.contentEditable = "true"
+                        
+                        } 
+                       
+
+                        document.body.appendChild(tb1)
+
+            
+                
+                
+                    }
+                 
+                }
+                xhttp.open("GET", "https://reqres.in/api/users?page=1", "true");
+                  xhttp.send();
+
+                }
+
+
+
+                function  reset() {
+                   
+                   
+
+                }
+
+                 </script>
+ </body>
+  </html>

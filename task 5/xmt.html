@@ -1,0 +1,71 @@
+   <!DOCTYPE html>
+<html>
+    <head>
+        
+<style>
+ 
+
+</style>
+    </head>
+
+<body>
+
+<div id="demo">
+<h1>The XMLHttpRequest Object</h1>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+
+    if (this.readyState == 4 && this.status == 200) {
+        let val =JSON.parse( this.responseText);
+        var a = val.data;
+
+        for (let i = 0;i< a.length; i++)         
+        {
+
+            
+            let email = document.createElement("p")
+            email.className="mail"
+             email.innerHTML =  a[i].email
+            document.body.appendChild(email)
+            
+
+            let p =document.createElement("p")
+            p.innerHTML = a[i].first_name
+            document.body.appendChild(p)
+
+            let last_name = document.createElement("p")
+            last_name.innerHTML =  a[i].last_name;
+            document.body.appendChild(last_name)
+
+          
+
+            let img = document.createElement("img")
+             img.src =  a[i].avatar;
+            document.body.appendChild(img)
+
+            let  id = document.createElement("i")
+             id.innerHTML =  a[i].id;
+            document.body.appendChild(id)
+        
+        }    
+
+           
+       }      
+       
+
+
+    }
+  xhttp.open("GET", "https://reqres.in/api/users?page=1", true);
+  xhttp.send();
+
+}
+
+</script>
+
+</body>
+</html>
