@@ -1,0 +1,29 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>HospitalServlet</servlet-name>
+    <servlet-class>com.servlet.HospitalServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HospitalServlet</servlet-name>
+    <url-pattern>/hospital/*</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>HospitalServletSorted</servlet-name>
+    <servlet-class>com.servlet.HospitalServletOrdered</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HospitalServletOrdered</servlet-name>
+    <url-pattern>/sort/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
