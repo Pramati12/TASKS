@@ -1,0 +1,5 @@
+com\servlet\HospitalServlet.class
+com\service\HospitalService.class
+com\database\ToConnection.class
+com\service\HospitalServiceImpl.class
+com\model\Hospital.class
