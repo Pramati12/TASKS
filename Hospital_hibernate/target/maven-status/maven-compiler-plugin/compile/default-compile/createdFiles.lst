@@ -1,0 +1,4 @@
+com\controllers\HospitalController.class
+com\service\HospitalService.class
+com\models\Hospital.class
+com\service\DatabaseHospitalServiceImpl.class
